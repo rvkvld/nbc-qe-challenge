@@ -1,0 +1,3 @@
+limit, expected
+-2, Invalid Limit Value
+2147483648, Invalid Limit Value
