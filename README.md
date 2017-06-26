@@ -10,7 +10,7 @@
 (copied over from the [NASA Website](https://api.nasa.gov/api.html#sounds))
 
 #### HTTP Request: 
-	`GET https://api.nasa.gov/planetary/sounds`
+`GET https://api.nasa.gov/planetary/sounds`
 
 #### QUERY PARAMETERS
 
