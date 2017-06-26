@@ -14,11 +14,11 @@
 
 #### QUERY PARAMETERS
 
-Parameter | Type | Default | Description
---------- | ---- | ------- | -----------
-q | string | None | Search text to filter results
-limit | int | 10 |number of tracks to return
-api_key | string | DEMO_KEY | api.nasa.gov key for expanded usage
+| Parameter | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| q | string | None | Search text to filter results | 
+| limit | int | 10 |number of tracks to return |
+| api_key | string | DEMO_KEY | api.nasa.gov key for expanded usage |
 
 # Found Issues:
 
@@ -72,7 +72,7 @@ Parameter Value | Expected Results | Actual Results
 
 # Examples of test cases
 
-ID | Title | Prerequisites | Steps | Expected Results | Actual Results | PASS/FAIL | Suite 
--- | ----- | ----- | ---------------- | -------------- | --------- | -----
-1  | Default value is applied when request is sent without `limit` parameter | At least 10 records should be present in the database | 1. Send request with no `limit` parameter: https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY | In JSON response `count` = 10 and `results` array has 10 dictionaries with records | | | Smoke
+| ID | Title | Prerequisites | Steps | Expected Results | Actual Results | PASS/FAIL | Suite |
+| -- | ----- | ----- | ---------------- | -------------- | --------- | ----- |
+| 1  | Default value is applied when request is sent without `limit` parameter | At least 10 records should be present in the database | 1. Send request with no `limit` parameter: https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY | In JSON response `count` = 10 and `results` array has 10 dictionaries with records | | | Smoke |
 
