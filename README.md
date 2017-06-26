@@ -29,16 +29,17 @@
 	* Notes: same issue is observed even if the filter is valid (i.e. [Interstellar](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&q=Interstellar))
 * Server returns 500 internal server error for invalid **limit** values
 	* Data Driven Testing
-Parameter Value | Expected Results | Actual Results
---------------- | ---------------- | --------------
-[0](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=0) | 0 records returned | 0 records returned (NOT A BUG)
-[1](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=1) | 1 record returned | 1 record returned (NOT A BUG)
-[no parameter value](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY) |  (default value) 10 records returned | 10 records returned (NOT A BUG)
-[-1](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=-1) | "Invalid Limit Value" error message returned | (default value) 10 records returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG**
-[-2](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=-2) | "Invalid Limit Value" error message returned | 500 internal server error and stack trace returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG** 
-[2147483647](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=2147483647) | all records returned | all records (64 of them) returned (NOT A BUG)
-[2147483648](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=2147483648) | "Invalid Limit Value" error message returned | 500 internal server error and stack trace returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG** 
-[stringValue](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=stringValue) | "Invalid Limit Value" error message returned | 500 internal server error and stack trace returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG** 
+
+| Parameter Value | Expected Results | Actual Results |
+| --------------- | ---------------- | -------------- |
+| [0](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=0) | 0 records returned | 0 records returned (NOT A BUG) |
+| [1](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=1) | 1 record returned | 1 record returned (NOT A BUG) |
+| [no parameter value](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY) |  (default value) 10 records returned | 10 records returned (NOT A BUG) |
+| [-1](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=-1) | "Invalid Limit Value" error message returned | (default value) 10 records returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG** |
+| [-2](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=-2) | "Invalid Limit Value" error message returned | 500 internal server error and stack trace returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG** |
+| [2147483647](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=2147483647) | all records returned | all records (64 of them) returned (NOT A BUG) |
+| [2147483648](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=2147483648) | "Invalid Limit Value" error message returned | 500 internal server error and stack trace returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG** |
+| [stringValue](https://api.nasa.gov/planetary/sounds?api_key=DEMO_KEY&limit=stringValue) | "Invalid Limit Value" error message returned | 500 internal server error and stack trace returned ![](https://placehold.it/15/ff0000/000000?text=+) **BUG** |
 
 
 * Documentation bug: Default value (DEMO_KEY) not applied. According to requirements (most likely it's a bug in requirements), "DEMO_KEY" should be a default value. However, if we run [planetary/sounds](https://api.nasa.gov/planetary/sounds), we see API_KEY_MISSING error message
